@@ -3,16 +3,20 @@ package com.imooc.controller;
 import com.imooc.pojo.bo.UserBO;
 import com.imooc.service.UserService;
 import com.imooc.utils.IMOOCJSONResult;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+@Api(value = "注册登录",tags = {"用于注册登录的相关接口"})
 @RestController
 @RequestMapping("/passport")   //代表这个类下面的所有请求全都要走/passport这儿
 public class PassportController {
     @Autowired
     private UserService userService;
+
+    @ApiOperation(value = "用户名是否存在",notes ="用户名是否存在",httpMethod ="GET" )
     @GetMapping("/usernameIsExist")
     public IMOOCJSONResult usernameIsExist(@RequestParam String username){ //@RequestParam 表示是一种请求类型的参数，而不是目的类型的参数
         //1.判断用户名不能为空
@@ -30,13 +34,13 @@ public class PassportController {
         //3.请求成功，用户名没有重复
         return IMOOCJSONResult.ok();
     }
-
+    @ApiOperation(value = "用户注册",notes ="用户注册",httpMethod ="POST" )
     @PostMapping("/regist")
     public IMOOCJSONResult regist(@RequestBody UserBO userBO)//requestbody接收数据
     {
         String username = userBO.getUsername();
         String password = userBO.getPassword();
-        String confirmPassWord = userBO.getConfirmPassWord();
+        String confirmPassWord = userBO.getConfirmPassword();
 
         //0.判断用户名和密码必不为空
         if(StringUtils.isBlank(username)||
