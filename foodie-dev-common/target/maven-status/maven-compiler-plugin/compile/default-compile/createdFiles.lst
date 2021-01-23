@@ -2,7 +2,9 @@ org\n3r\idworker\Id.class
 org\n3r\idworker\strategy\DefaultRandomCodeStrategy.class
 org\n3r\idworker\utils\HttpReq.class
 org\n3r\idworker\Code.class
+com\imooc\utils\CookieUtils.class
 org\n3r\idworker\strategy\FileLock.class
+com\imooc\utils\JsonUtils.class
 org\n3r\idworker\Test.class
 org\n3r\idworker\Sid$1.class
 org\n3r\idworker\utils\Props.class
