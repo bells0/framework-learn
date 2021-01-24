@@ -59,3 +59,52 @@ where
 
 ```
 
+* service
+
+  调用了上面的sql。功能就是多表联合查询一下，然后将元素返回出来。懒加载机制主要是在前端完成
+
+* controller
+
+  ``` java
+      @ApiOperation(value = "获取商品子分类", notes = "获取商品子分类", httpMethod = "GET")
+      @GetMapping("/subCat/{rootCatId}")
+      public IMOOCJSONResult subCat(
+              @ApiParam(name = "rootCatId", value = "一级分类id", required = true)
+              @PathVariable Integer rootCatId) {
+  
+          if (rootCatId == null) {
+              return IMOOCJSONResult.errorMsg("分类不存在");
+          }
+  
+          List<CategoryVO> list = categoryService.getSubCatList(rootCatId);
+          return IMOOCJSONResult.ok(list);
+      }
+  ```
+
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+###### 配置自定义mapper
+
+1. 先创建mapper，直接创建接口就行 ![mapper](Reimg/img_6.png)
+2. 配置xml文件，绑定并且写sql ![img](Reimg/img_7.png)
+
+ 
+
+  
+
+  
