@@ -40,14 +40,12 @@ public class CategoryServiceImpl implements CategoryService {
     public List<CategoryVO> getSubCatList(Integer rootCatId) {
         return categoryMapperCustom.getSubCatList(rootCatId);
     }
-//
-//    @Transactional(propagation = Propagation.SUPPORTS)
-//    @Override
-//    public List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId) {
-//
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("rootCatId", rootCatId);
-//
-//        return categoryMapperCustom.getSixNewItemsLazy(map);
-//    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("rootCatId", rootCatId);
+        return categoryMapperCustom.getSixNewItemsLazy(map);
+    }
 }

@@ -11,5 +11,6 @@ public interface CategoryMapperCustom {
 
     public List<CategoryVO> getSubCatList(Integer rootCatId);
 
+                                                //@param 作为参数传入的
     public List<NewItemsVO> getSixNewItemsLazy(@Param("paramsMap") Map<String, Object> map);
 }
