@@ -1,0 +1,6 @@
+23-Jan-2021 11:21:25.636 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+23-Jan-2021 11:21:25.636 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+23-Jan-2021 11:21:25.637 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@dd0c991')
+23-Jan-2021 14:46:47.842 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+23-Jan-2021 14:46:47.842 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+23-Jan-2021 14:46:47.843 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@dd0c991')

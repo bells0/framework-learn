@@ -1,0 +1,41 @@
+24-Jan-2021 15:57:05.110 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/9.0.41
+24-Jan-2021 15:57:05.142 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Dec 3 2020 11:43:00 UTC
+24-Jan-2021 15:57:05.142 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      9.0.41.0
+24-Jan-2021 15:57:05.142 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     E:\IntelliJ IDEA 2020.3.1\JDK1.8\jre
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    1.8.0_275-b01
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Amazon.com Inc.
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41
+24-Jan-2021 15:57:05.143 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41
+24-Jan-2021 15:57:05.184 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\conf\logging.properties
+24-Jan-2021 15:57:05.184 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+24-Jan-2021 15:57:05.185 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+24-Jan-2021 15:57:05.185 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+24-Jan-2021 15:57:05.185 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+24-Jan-2021 15:57:05.185 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41
+24-Jan-2021 15:57:05.191 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41
+24-Jan-2021 15:57:05.196 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\temp
+24-Jan-2021 15:57:05.253 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.25]。
+24-Jan-2021 15:57:05.256 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]。
+24-Jan-2021 15:57:05.261 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL配置：useAprConnector[false]，useOpenSSL[true]
+24-Jan-2021 15:57:05.278 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1g  21 Apr 2020]
+24-Jan-2021 15:57:05.813 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+24-Jan-2021 15:57:05.953 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1055]毫秒内初始化
+24-Jan-2021 15:57:05.980 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+24-Jan-2021 15:57:05.980 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/9.0.41]
+24-Jan-2021 15:57:05.993 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\docs]
+24-Jan-2021 15:57:06.343 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\docs]的部署已在[347]毫秒内完成
+24-Jan-2021 15:57:06.346 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\examples]
+24-Jan-2021 15:57:07.324 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\examples]的部署已在[978]毫秒内完成
+24-Jan-2021 15:57:07.333 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\foodie-shop]
+24-Jan-2021 15:57:07.368 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\foodie-shop]的部署已在[35]毫秒内完成
+24-Jan-2021 15:57:07.371 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\host-manager]
+24-Jan-2021 15:57:07.406 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\host-manager]的部署已在[35]毫秒内完成
+24-Jan-2021 15:57:07.409 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\manager]
+24-Jan-2021 15:57:07.453 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\manager]的部署已在[44]毫秒内完成
+24-Jan-2021 15:57:07.456 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\ROOT]
+24-Jan-2021 15:57:07.482 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\apache-tomcat-9.0.41-windows-x64\apache-tomcat-9.0.41\webapps\ROOT]的部署已在[26]毫秒内完成
+24-Jan-2021 15:57:07.488 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+24-Jan-2021 15:57:07.498 信息 [main] org.apache.catalina.startup.Catalina.start [1544]毫秒后服务器启动
