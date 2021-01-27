@@ -1,0 +1,17 @@
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:00 +0800] "GET /foodie-shop HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:01 +0800] "GET /foodie-shop/course/courses.jpg HTTP/1.1" 200 63559
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:01 +0800] "GET /foodie-shop/basic/images/ibar_sprites.png HTTP/1.1" 200 5204
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:01 +0800] "GET /foodie-shop/AmazeUI-2.4.2/assets/fonts/fontawesome-webfont.woff2?v=4.5.0 HTTP/1.1" 200 66624
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/cake.png HTTP/1.1" 200 694
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/jianguo.png HTTP/1.1" 200 687
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/chocolate.png HTTP/1.1" 200 596
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/food.png HTTP/1.1" 200 763
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/meat.png HTTP/1.1" 200 5528
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/cookies.png HTTP/1.1" 200 1226
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/sweet.png HTTP/1.1" 200 860
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/luwei.png HTTP/1.1" 200 800
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/lobster.png HTTP/1.1" 200 1315
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:25:02 +0800] "GET /foodie-shop/img/tea.png HTTP/1.1" 200 1014
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:28:49 +0800] "GET /foodie-shop HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:14:32:40 +0800] "GET /foodie-shop HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:14:32:40 +0800] "GET /foodie-shop/js/app.js HTTP/1.1" 304 -

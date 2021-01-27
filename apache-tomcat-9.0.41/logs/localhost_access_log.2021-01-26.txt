@@ -146,3 +146,9 @@
 0:0:0:0:0:0:0:1 - - [26/Jan/2021:20:47:59 +0800] "GET /foodie-shop/js/jquery.imagezoom.min.js HTTP/1.1" 200 3044
 0:0:0:0:0:0:0:1 - - [26/Jan/2021:20:47:59 +0800] "GET /foodie-shop/js/moment.js HTTP/1.1" 200 104409
 0:0:0:0:0:0:0:1 - - [26/Jan/2021:20:47:59 +0800] "GET /foodie-shop/components/VuePaging/zpageNav.js HTTP/1.1" 200 2249
+0:0:0:0:0:0:0:1 - - [26/Jan/2021:23:41:29 +0800] "GET /foodie-shop/item.html?itemId=cake-1001 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jan/2021:23:41:29 +0800] "GET /foodie-shop/js/app.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jan/2021:23:41:30 +0800] "GET /foodie-shop/img/foodie.ico HTTP/1.1" 200 4286
+0:0:0:0:0:0:0:1 - - [26/Jan/2021:23:41:32 +0800] "GET /foodie-shop/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jan/2021:23:41:32 +0800] "GET /foodie-shop/js/app.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/Jan/2021:23:41:33 +0800] "GET /foodie-shop/img/foodie.ico HTTP/1.1" 200 4286

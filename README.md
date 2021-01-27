@@ -255,8 +255,185 @@ LIMIT 0,6
       }
   ```
 
+#### 搜索 查看商品详情
+
+* 效果：![效果](Reimg/img_9.png)
+
+  可以展示出图片价格，口味选项等信息
+
+* 代码实现：
+
+  * controller层 ItemsController: 
+
+  ```java
+  @ApiOperation(value = "查询商品详情", notes = "查询商品详情", httpMethod = "GET")
+      @GetMapping("/info/{itemId}")
+      public IMOOCJSONResult info(
+              @ApiParam(name = "itemId", value = "商品id", required = true)
+              @PathVariable String itemId) {
   
+          if (StringUtils.isBlank(itemId)) {
+              return IMOOCJSONResult.errorMsg(null);
+          }
+  
+          Items item = itemService.queryItemById(itemId);
+          List<ItemsImg> itemImgList = itemService.queryItemImgList(itemId);
+          List<ItemsSpec> itemsSpecList = itemService.queryItemSpecList(itemId);
+          ItemsParam itemsParam = itemService.queryItemParam(itemId);
+                  //这里有四个要传递的参数，但是json每次只能传递一个，因此要借助VO
+          ItemInfoVO itemInfoVO = new ItemInfoVO();
+          itemInfoVO.setItem(item);
+          itemInfoVO.setItemImgList(itemImgList);
+          itemInfoVO.setItemSpecList(itemsSpecList);
+          itemInfoVO.setItemParams(itemsParam);
+          return IMOOCJSONResult.ok(itemInfoVO);
+      }
+  ```
+
+  service层代码就是查询，这里忽略。
 
   
 
-  
+#### 商品评价展示并且实现分页
+
+商品展示也涉及到多表的连接查询，要自定义sql。  
+* ItemsMapperCustom：
+
+```java
+ public List<ItemCommentVO> queryItemComments(@Param("paramsMap") Map<String, Object> map);
+```
+
+* xml实现：
+
+```xml
+  <select id="queryItemComments" parameterType="Map" resultType="com.imooc.pojo.vo.ItemCommentVO">
+    SELECT
+        ic.comment_level as commentLevel,
+        ic.content as content,
+        ic.sepc_name as specName,
+        ic.created_time as createdTime,
+        u.face as userFace,
+        u.nickname as nickname
+    FROM
+        items_comments ic
+    LEFT JOIN
+        users u
+    ON
+        ic.user_id = u.id
+    WHERE
+        ic.item_id = #{paramsMap.itemId}
+        <if test=" paramsMap.level != null and paramsMap.level != '' ">
+          AND ic.comment_level = #{paramsMap.level}
+        </if>
+  </select>
+
+```
+
+对比一下和前面的下拉懒加载的xml实现，为何这里没有<resultMap>?
+
+  因为这里的resultType是直接从pojo中定义了，所以上面不需要再定义<resultMap> 。所以，这里的数据全是放在了VO中的
+
+* service层实现
+
+###### 分页使用mybatis分页插件.
+ 使用分页插件是在service中使用。
+
+PageHelper.startPage(page, pageSize);
+
+```xml
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.2.12</version>
+        </dependency>
+```
+
+* 先来编写service:
+
+``` java
+  @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedGridResult queryPagedComments(String itemId,
+                                                  Integer level,
+                                                  Integer page,
+                                                  Integer pageSize) {
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("itemId", itemId);
+        map.put("level", level);
+
+        // mybatis-pagehelper
+
+        /**
+         * page: 第几页
+         * pageSize: 每页显示条数
+         */
+        PageHelper.startPage(page, pageSize);
+
+        List<ItemCommentVO> list = itemsMapperCustom.queryItemComments(map);
+//        System.out.println(list);
+        for (ItemCommentVO vo : list) {
+            vo.setNickname(DesensitizationUtil.commonDisplay(vo.getNickname()));
+        }
+
+        return setterPagedGrid(list, page);
+    }
+    private PagedGridResult setterPagedGrid(List<?> list, Integer page) {
+        PageInfo<?> pageList = new PageInfo<>(list);
+        PagedGridResult grid = new PagedGridResult();
+        grid.setPage(page);
+        grid.setRows(list);
+        grid.setTotal(pageList.getPages());
+        grid.setRecords(pageList.getTotal());
+        return grid;
+    }
+```
+* 为分页设置一个数据格式：
+
+```java
+	public class PagedGridResult {
+	
+	private int page;			// 当前页数
+	private int total;			// 总页数	
+	private long records;		// 总记录数
+	private List<?> rows;		// 每行显示的内容
+	}  //省略set与get方法
+	```
+	
+	* controller:
+```java
+
+ @ApiOperation(value = "查询商品评论", notes = "查询商品评论", httpMethod = "GET")
+    @GetMapping("/comments")
+    public IMOOCJSONResult comments(
+            @ApiParam(name = "itemId", value = "商品id", required = true)
+            @RequestParam String itemId,
+            @ApiParam(name = "level", value = "评价等级", required = false)
+            @RequestParam(required = false) Integer level,
+            @ApiParam(name = "page", value = "查询下一页的第几页", required = false)
+            @RequestParam Integer page,
+            @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)
+            @RequestParam Integer pageSize) {
+
+        if (StringUtils.isBlank(itemId)) {
+            return IMOOCJSONResult.errorMsg(null);
+        }
+        if (page == null) {
+            page = 1;
+        }
+        if (pageSize == null) {
+            pageSize = COMMON_PAGE_SIZE;  //这里通用化一些，COMMON这个统一放一起
+        }
+        System.out.println(level);
+        PagedGridResult grid = itemService.queryPagedComments(itemId,
+                                                                level,
+                                                                page,
+                                                                pageSize);
+        return IMOOCJSONResult.ok(grid);
+    }
+```
+
+###### 注意坑
+
+查询全部评论时，level应该是为空，但是会返回空白页面。这里设置参数  **required=false** 来解决。表示level为非必须参数。
+
