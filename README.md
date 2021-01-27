@@ -586,3 +586,5 @@ public class DesensitizationUtil {
 
 采取形式：cookie+redis形式
 
+#### 首先采用cookie实现
+
