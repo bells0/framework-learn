@@ -15,3 +15,16 @@
 0:0:0:0:0:0:0:1 - - [27/Jan/2021:02:28:49 +0800] "GET /foodie-shop HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [27/Jan/2021:14:32:40 +0800] "GET /foodie-shop HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [27/Jan/2021:14:32:40 +0800] "GET /foodie-shop/js/app.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:16:36:26 +0800] "GET /foodie-shop/js/app.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:16:38:41 +0800] "GET /foodie-shop/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:16:38:41 +0800] "GET /foodie-shop/img/foodie.ico HTTP/1.1" 200 4286
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:22:02 +0800] "GET /foodie-shop/catItems.html?searchType=searchItems&keywords=%E5%A5%BD%E5%90%83 HTTP/1.1" 200 14316
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:22:02 +0800] "GET /foodie-shop/basic/js/jquery-1.7.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:22:02 +0800] "GET /foodie-shop/components/VuePaging/zpageNav.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:22:02 +0800] "GET /foodie-shop/js/script.js HTTP/1.1" 200 3316
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:22:02 +0800] "GET /foodie-shop/css/seastyle.css HTTP/1.1" 200 6846
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:22:02 +0800] "GET /foodie-shop/components/VuePaging/zpageNav.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:49:55 +0800] "GET /foodie-shop HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:50:11 +0800] "GET /foodie-shop/ HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:51:46 +0800] "GET /foodie-shop/catItems.html?searchType=catItems&catId=44 HTTP/1.1" 200 14316
+0:0:0:0:0:0:0:1 - - [27/Jan/2021:20:51:51 +0800] "GET /foodie-shop/catItems.html?searchType=catItems&catId=73 HTTP/1.1" 200 14316

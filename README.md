@@ -255,7 +255,9 @@ LIMIT 0,6
       }
   ```
 
-#### 搜索 查看商品详情
+## 搜索 
+
+### 商品详情页
 
 * 效果：![效果](Reimg/img_9.png)
 
@@ -348,6 +350,17 @@ PageHelper.startPage(page, pageSize);
         </dependency>
 ```
 
+* 配置yml文件
+
+```yaml
+# 分页插件配置
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+```
+
+
+
 * 先来编写service:
 
 ``` java
@@ -398,9 +411,9 @@ PageHelper.startPage(page, pageSize);
 	private long records;		// 总记录数
 	private List<?> rows;		// 每行显示的内容
 	}  //省略set与get方法
-	```
-	
-	* controller:
+```
+
+* 控制层
 ```java
 
  @ApiOperation(value = "查询商品评论", notes = "查询商品评论", httpMethod = "GET")
@@ -433,7 +446,143 @@ PageHelper.startPage(page, pageSize);
     }
 ```
 
-###### 注意坑
+##### 注意坑
 
 查询全部评论时，level应该是为空，但是会返回空白页面。这里设置参数  **required=false** 来解决。表示level为非必须参数。
+
+#### 信息匿名脱敏
+
+* 效果：![xiaoguo](Reimg/img_10.png)
+
+![效果](Reimg/img_11.png)
+
+实现：引入工具类
+
+```java
+
+/**
+ * 通用脱敏工具类
+ * 可用于：
+ *      用户名
+ *      手机号
+ *      邮箱
+ *      地址等
+ */
+public class DesensitizationUtil {
+
+    private static final int SIZE = 6;
+    private static final String SYMBOL = "*";
+
+    public static void main(String[] args) {
+        String name = commonDisplay("慕课网");
+        String mobile = commonDisplay("13900000000");
+        String mail = commonDisplay("admin@imooc.com");
+        String address = commonDisplay("北京大运河东路888号");
+
+        System.out.println(name);
+        System.out.println(mobile);
+        System.out.println(mail);
+        System.out.println(address);
+    }
+
+    /**
+     * 通用脱敏方法
+     * @param value
+     * @return
+     */
+    public static String commonDisplay(String value) {
+        if (null == value || "".equals(value)) {
+            return value;
+        }
+        int len = value.length();
+        int pamaone = len / 2;
+        int pamatwo = pamaone - 1;
+        int pamathree = len % 2;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (len <= 2) {
+            if (pamathree == 1) {
+                return SYMBOL;
+            }
+            stringBuilder.append(SYMBOL);
+            stringBuilder.append(value.charAt(len - 1));
+        } else {
+            if (pamatwo <= 0) {
+                stringBuilder.append(value.substring(0, 1));
+                stringBuilder.append(SYMBOL);
+                stringBuilder.append(value.substring(len - 1, len));
+
+            } else if (pamatwo >= SIZE / 2 && SIZE + 1 != len) {
+                int pamafive = (len - SIZE) / 2;
+                stringBuilder.append(value.substring(0, pamafive));
+                for (int i = 0; i < SIZE; i++) {
+                    stringBuilder.append(SYMBOL);
+                }
+                if ((pamathree == 0 && SIZE / 2 == 0) || (pamathree != 0 && SIZE % 2 != 0)) {
+                    stringBuilder.append(value.substring(len - pamafive, len));
+                } else {
+                    stringBuilder.append(value.substring(len - (pamafive + 1), len));
+                }
+            } else {
+                int pamafour = len - 2;
+                stringBuilder.append(value.substring(0, 1));
+                for (int i = 0; i < pamafour; i++) {
+                    stringBuilder.append(SYMBOL);
+                }
+                stringBuilder.append(value.substring(len - 1, len));
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+}
+```
+
+然后在service层使用：![tu](Reimg/img_12.png)
+
+#### 商品搜索
+
+效果：点击搜索可以得到数据。并且三个排序点击都有相应结果拿到
+
+* 编写多表联合查询sql（这个sql要研究一下）
+* 编写自定义mapper，xml。这里注意这个的写法：
+	AND i.item_name like '%${paramsMap.keywords}%'
+
+* 创建VO
+* service层编写
+* controller层编写
+
+#### 分类搜索
+
+步骤与上面基本相同
+
+### 购物车
+
+购物车的存储形式：**Cookie**
+
+* 无需登录，无需查库，保存在浏览器端
+* 有点：性能好、访问快，没有和数据库交互
+* 缺点1：换电脑购物车数据会丢失
+* 缺点2：电脑被其他人登陆时，隐私安全
+
+购物车存储形式：**session**
+
+* 用户登录后，购物车数据存放入用户会话
+* 优点：初期性能好，访问快
+* 缺点1：session基于内存，用户量庞大影响服务器性能
+* 缺点2：只能存在当前会话，不适合集群式分布系统 
+
+购物车存储形式： **数据库**
+
+* 用户登录后，购物车数据存入数据库
+* 优点：数据持久化，任何地方，时间可以访问
+* 缺点：频繁读写数据库，造成数据库压力
+
+购物车存储形式： **Redis**
+
+* 用户登录后，购物车数据存入redis缓存
+* 优点1：数据持久化，和在任何地点任何时间访问
+* 优点2：频繁读写只基于缓存，不会造成数据库压力
+* 优点3：适用于集群和分布式系统，可扩展性强
+
+采取形式：cookie+redis形式
 

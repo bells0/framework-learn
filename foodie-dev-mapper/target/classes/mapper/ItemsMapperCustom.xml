@@ -47,7 +47,7 @@
             </if>
             order by
             <choose>
-                <when test=" paramsMap.sort == &quot;c&quot; ">
+                <when test=" paramsMap.sort == &quot;c&quot; ">   <!--&quot;是转义 -->
                     i.sell_counts desc
                 </when>
                 <when test=" paramsMap.sort == &quot;p&quot; ">
