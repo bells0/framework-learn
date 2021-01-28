@@ -164,17 +164,17 @@ public class ItemServiceImpl implements ItemService {
         return setterPagedGrid(list, page);
     }
 
-////    @Transactional(propagation = Propagation.SUPPORTS)
-////    @Override
-////    public List<ShopcartVO> queryItemsBySpecIds(String specIds) {
-////
-////        String ids[] = specIds.split(",");
-////        List<String> specIdsList = new ArrayList<>();
-////        Collections.addAll(specIdsList, ids);
-////
-////        return itemsMapperCustom.queryItemsBySpecIds(specIdsList);
-////    }
-//
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<ShopcartVO> queryItemsBySpecIds(String specIds) {
+
+        String ids[] = specIds.split(",");
+        List<String> specIdsList = new ArrayList<>();
+        Collections.addAll(specIdsList, ids);
+
+        return itemsMapperCustom.queryItemsBySpecIds(specIdsList);
+    }
+
 //    @Transactional(propagation = Propagation.SUPPORTS)
 //    @Override
 //    public ItemsSpec queryItemSpecById(String specId) {

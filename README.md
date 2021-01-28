@@ -588,3 +588,28 @@ public class DesensitizationUtil {
 
 #### 首先采用cookie实现
 
+##### 添加购物车功能
+
+* 先创建一个ShopcatController.写入相关方法
+* 为传入的对象创建一个BO
+* 编写添加购物车方法，路由为  **/add** 
+
+##### 购物车渲染
+
+* 首先编写自定义sql
+
+* 创建mapper，编写自定义ItemsMapperCustom.xml.  queryItemsBySpecIds
+
+* 创建ShopcartVO
+
+  ​	注意xml中字符串拼接的用法.open,separator,close
+
+  ```xml
+  <foreach collection="paramsList" index="index" item="specId" open="(" separator="," close=")">
+                #{specId}
+              </foreach>
+  ```
+  
+* 编写ItemServiceImpl
+
+* 编写ItemsController  接口**/refresh**  

@@ -1,0 +1,41 @@
+28-Jan-2021 15:10:04.273 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/9.0.41
+28-Jan-2021 15:10:04.276 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Dec 3 2020 11:43:00 UTC
+28-Jan-2021 15:10:04.276 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      9.0.41.0
+28-Jan-2021 15:10:04.277 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     E:\IntelliJ IDEA 2020.3.1\JDK1.8\jre
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    1.8.0_275-b01
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Amazon.com Inc.
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     E:\coding\com.imooc\apache-tomcat-9.0.41
+28-Jan-2021 15:10:04.278 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     E:\coding\com.imooc\apache-tomcat-9.0.41
+28-Jan-2021 15:10:04.279 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=E:\coding\com.imooc\apache-tomcat-9.0.41\conf\logging.properties
+28-Jan-2021 15:10:04.279 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+28-Jan-2021 15:10:04.279 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+28-Jan-2021 15:10:04.279 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+28-Jan-2021 15:10:04.280 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+28-Jan-2021 15:10:04.280 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=E:\coding\com.imooc\apache-tomcat-9.0.41
+28-Jan-2021 15:10:04.281 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=E:\coding\com.imooc\apache-tomcat-9.0.41
+28-Jan-2021 15:10:04.281 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=E:\coding\com.imooc\apache-tomcat-9.0.41\temp
+28-Jan-2021 15:10:04.283 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.25]。
+28-Jan-2021 15:10:04.284 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]。
+28-Jan-2021 15:10:04.284 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL配置：useAprConnector[false]，useOpenSSL[true]
+28-Jan-2021 15:10:04.292 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1g  21 Apr 2020]
+28-Jan-2021 15:10:04.506 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+28-Jan-2021 15:10:04.647 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[513]毫秒内初始化
+28-Jan-2021 15:10:04.665 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+28-Jan-2021 15:10:04.665 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/9.0.41]
+28-Jan-2021 15:10:04.672 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\docs]
+28-Jan-2021 15:10:04.847 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\docs]的部署已在[173]毫秒内完成
+28-Jan-2021 15:10:04.851 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\examples]
+28-Jan-2021 15:10:05.052 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\examples]的部署已在[201]毫秒内完成
+28-Jan-2021 15:10:05.054 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\foodie-shop]
+28-Jan-2021 15:10:05.071 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\foodie-shop]的部署已在[17]毫秒内完成
+28-Jan-2021 15:10:05.072 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\host-manager]
+28-Jan-2021 15:10:05.092 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\host-manager]的部署已在[20]毫秒内完成
+28-Jan-2021 15:10:05.096 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\manager]
+28-Jan-2021 15:10:05.111 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\manager]的部署已在[16]毫秒内完成
+28-Jan-2021 15:10:05.112 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\ROOT]
+28-Jan-2021 15:10:05.128 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[E:\coding\com.imooc\apache-tomcat-9.0.41\webapps\ROOT]的部署已在[16]毫秒内完成
+28-Jan-2021 15:10:05.133 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+28-Jan-2021 15:10:05.141 信息 [main] org.apache.catalina.startup.Catalina.start [493]毫秒后服务器启动

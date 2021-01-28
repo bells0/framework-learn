@@ -5,6 +5,7 @@ E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\MyOrdersVO.j
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\ItemsParam.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\MerchantOrdersVO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\CommentLevelCountsVO.java
+E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\bo\AddressBO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\NewItemsVO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\ShopcartVO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\MySubOrderItemVO.java
@@ -14,6 +15,7 @@ E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\MyCommentVO.
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\ItemsImg.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\SearchItemsVO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\SimpleItemVO.java
+E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\bo\SubmitOrderBO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\Category.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\Orders.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\OrderVO.java
@@ -24,6 +26,7 @@ E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\ItemCommentV
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\OrderStatus.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\Stu.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\ItemInfoVO.java
+E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\bo\ShopcartBO.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\OrderItems.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\Carousel.java
 E:\coding\com.imooc\foodie-dev-pojo\src\main\java\com\imooc\pojo\ItemsComments.java
