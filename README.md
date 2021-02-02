@@ -609,7 +609,25 @@ public class DesensitizationUtil {
                 #{specId}
               </foreach>
   ```
-  
+
 * 编写ItemServiceImpl
 
 * 编写ItemsController  接口**/refresh**  
+
+##### 添加购物收货地址
+
+内容似乎没了，代码里面自己看一下
+
+##### 确认订单
+
+![流程图](Reimg/img_13.png)
+
+![复杂订单状态设计](Reimg/img_14.png)
+
+订单确认只要编写OrdersController即可。方法为 create 方法
+
+##### 创建订单
+
+* OrderService层，先实现createOrder，拿到所有信息，并且写入BO。（涉及的表有很多，有几百行，这里要细分析）
+  * 扣除商品库存方法（ItemServiceImpl中  decreaseItemSpecStock方法），存在一个资源共享的不一致问题。采用**分布式事务锁** 处理（后续）。这里先采用**乐观锁**
+
