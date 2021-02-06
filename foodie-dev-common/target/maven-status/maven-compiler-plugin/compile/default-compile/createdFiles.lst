@@ -6,6 +6,7 @@ com\imooc\utils\CookieUtils.class
 org\n3r\idworker\strategy\FileLock.class
 com\imooc\utils\MobileEmailUtils.class
 com\imooc\utils\JsonUtils.class
+com\imooc\utils\MD5Utils.class
 com\imooc\utils\PagedGridResult.class
 org\n3r\idworker\Test.class
 org\n3r\idworker\Sid$1.class

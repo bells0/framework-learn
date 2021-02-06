@@ -1,29 +1,23 @@
 package com.imooc.controller;
 
+import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.PayMethod;
+import com.imooc.pojo.OrderStatus;
 import com.imooc.pojo.UserAddress;
 import com.imooc.pojo.bo.AddressBO;
 import com.imooc.pojo.bo.SubmitOrderBO;
 import com.imooc.pojo.vo.MerchantOrdersVO;
 import com.imooc.pojo.vo.OrderVO;
-import com.imooc.service.AddressService;
 import com.imooc.service.OrderService;
 import com.imooc.utils.IMOOCJSONResult;
-import com.imooc.utils.MobileEmailUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 @Api(value = "订单相关", tags = {"订单相关的api接口"})
 @RequestMapping("orders")
@@ -31,7 +25,7 @@ import java.util.List;
 public class OrdersController extends BaseController{
     final static Logger logger = LoggerFactory.getLogger(OrdersController.class);
     @Autowired
-    OrderService orderService;
+    private OrderService orderService;
     @Autowired
     private RestTemplate restTemplate;
 
@@ -66,7 +60,7 @@ public class OrdersController extends BaseController{
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.add("imoocUserId","imooc");
+        headers.add("imoocUserId","imooc");//需要找老师申请
         headers.add("password","imooc");
 
         HttpEntity<MerchantOrdersVO> entity =
@@ -84,6 +78,16 @@ public class OrdersController extends BaseController{
 
         return IMOOCJSONResult.ok(orderId);
     }
+    @PostMapping("notifyMerchantOrderPaid")
+public Integer notifyMerchantOrderPaid(String merchantOrderId){
+         orderService.updateOrderStatus(merchantOrderId, OrderStatusEnum.WAIT_DELIVER.type);
+        return HttpStatus.OK.value();
+    }
 
+    @PostMapping("getPaidOrderInfo")
+    public IMOOCJSONResult getPaidOrderInfo(String orderId){
+        OrderStatus orderStatus = orderService.queryOrderStatusInfo(orderId);
+        return IMOOCJSONResult.ok(orderStatus);
+    }
 
 }

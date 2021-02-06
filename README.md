@@ -631,3 +631,32 @@ public class DesensitizationUtil {
 * OrderService层，先实现createOrder，拿到所有信息，并且写入BO。（涉及的表有很多，有几百行，这里要细分析）
   * 扣除商品库存方法（ItemServiceImpl中  decreaseItemSpecStock方法），存在一个资源共享的不一致问题。采用**分布式事务锁** 处理（后续）。这里先采用**乐观锁**
 
+```xml
+    <update id="decreaseItemSpecStock">
+
+        update
+            items_spec
+        set
+            stock = stock - #{pendingCounts}
+        where
+            id = #{specId}
+        and
+            stock >= #{pendingCounts}
+
+    </update>
+```
+
+##### 微信支付
+
+申请支付功能需要企业资质才可以，个人不行。
+
+异步通知支付结果
+
+* OrdersController  notifyMerchantOrderPaid方法
+* OrderService  updateOrderStatus方法
+* 支付中心的代码直接部署在线上的（已经提供，foodie-payment 这个工程）
+* restTemplate的使用    (这里要填找老师申请才能有)
+* 注意，这里为了方便测试，所有金额全修改为1分钱。在OrderController 58行
+
+* 知识点，内网穿透 内网放在公网上   natapp.cn这个网站
+* 支付完成后页面跳转  轮询支付成功结果
