@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -12,7 +13,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages ="com.imooc.mapper" )
 //扫描组件包以及相关组件包
 @ComponentScan(basePackages ={"com.imooc","org.n3r.idworker"} )
-
+@EnableScheduling   //开启定时任务
 public class Application {
 
 
