@@ -14,6 +14,7 @@ D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\Orders
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\MySubOrderItemVO.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\SearchItemsVO.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\ItemInfoVO.java
+D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\bo\center\OrderItemsCommentBO.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\Stu.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\OrderItems.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\CommentLevelCountsVO.java
@@ -28,5 +29,6 @@ D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\bo\Add
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\SubCategoryVO.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\ItemCommentVO.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\MyCommentVO.java
+D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\bo\center\CenterUserBO.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\ItemsParam.java
 D:\java\code\framework-learn\foodie-dev-pojo\src\main\java\com\imooc\pojo\vo\NewItemsVO.java
