@@ -681,7 +681,32 @@ public class DesensitizationUtil {
 
 * service与实现
 
+#### 修改用户信息
 
+* Controller
+
+  update方法。
+
+  这里要把信息放入cookie中
+
+  ```java
+  
+      private Users setNullProperty(Users userResult) {    //从passport中拷贝的
+          userResult.setPassword(null);
+          userResult.setMobile(null);
+          userResult.setEmail(null);
+          userResult.setCreatedTime(null);
+          userResult.setUpdatedTime(null);
+          userResult.setBirthday(null);
+          return userResult;
+      }  //然后后面再更新一下setcookie
+  ```
+
+  
+
+* service
+
+#### 使用Hibernate验证用户信息
 
 
 

@@ -1,7 +1,7 @@
 package com.imooc.service.center;
 
 import com.imooc.pojo.Users;
-//import com.imooc.pojo.bo.center.CenterUserBO;
+import com.imooc.pojo.bo.center.CenterUserBO;
 
 public interface CenterUserService {
 
@@ -17,7 +17,7 @@ public interface CenterUserService {
      * @param userId
      * @param centerUserBO
      */
-//    public Users updateUserInfo(String userId, CenterUserBO centerUserBO);
+    public Users updateUserInfo(String userId, CenterUserBO centerUserBO);
 
     /**
      * 用户头像更新
