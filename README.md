@@ -712,7 +712,80 @@ public class DesensitizationUtil {
 
 ### 用户头像上传
 
+**注意：暂时图片存本地，后期图片要放在云服务器上面**
 
+#### 定义文件保存位置
+
+* CenterUserController 
+  *   uploadFace方法
+
+##### 上传文件相关的IO控制操作
+
+##### 配置属性资源的映射
+
+* 在resources中创建配置文件file-upload-dev.properties来配置文件的路径
+* 需要添加一个FileUpload工具类,用来指明配置文件的地址，结合注解@PropertySource 
+* 然后在控制层直接
+
+```java
+fileUpload.getImageUserFaceLocation();
+```
+
+即可获得
+
+##### 为静态资源提供网络映射服务
+
+* 配置实现webMvcConfig 配置
+
+  * ```java
+    addResourceHandlers
+    ```
+
+##### 更新用户头像到数据库
+
+* 对应service方法 updateUserFace
+
+##### 图片格式限制以防后门
+
+在Controller的uploadFace中加入这一段验证判断
+
+```java
+ if (!suffix.equalsIgnoreCase("png") &&
+                            !suffix.equalsIgnoreCase("jpg") &&
+                            !suffix.equalsIgnoreCase("jpeg") ) {
+                        return IMOOCJSONResult.errorMsg("图片格式不正确！");
+                    }
+```
+
+##### 大小限制，以及自定义捕获异常
+
+限制大小：在yml文件中配置
+
+```yaml
+  servlet:
+    multipart:
+      max-file-size: 512000     # 文件上传大小限制为500kb
+      max-request-size: 512000  # 请求大小限制为500kb
+
+```
+
+异常捕获：
+
+重新创建一个类exception.CustomExceptionHandler,然后在这儿实现
+
+```java
+
+@RestControllerAdvice
+public class CustomExceptionHandler {
+
+    // 上传文件超过500k，捕获异常：MaxUploadSizeExceededException
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public IMOOCJSONResult handlerMaxUploadFile(MaxUploadSizeExceededException ex) {
+        return IMOOCJSONResult.errorMsg("文件上传大小不能超过500k，请压缩图片或者降低图片质量再上传！");
+    }
+}
+
+```
 
 
 
