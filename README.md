@@ -5,17 +5,17 @@
 
 * 留意一下，枚举类型。很多地方都用到了。写死的数据都要枚举出来
 
-![示意图](Reimg/img.png)
+![示意图](D:\java\code\framework-learn\README.assets\img.png)
 
 ##### 首页轮播图
 
-* 效果图 ![效果图](Reimg/img_1.png)
+* 效果图 ![效果图](D:\java\code\framework-learn\README.assets\img_1.png)
 
   点击对应的图片可以跳转。
 
 * 代码实现
 
-  * service层先写接口 ![service](Reimg/img_2.png)
+  * service层先写接口 ![service](D:\java\code\framework-learn\README.assets\img_2.png)
 
 * 然后对应的controller  实现创建indexController，实现carousel接口。注意，这里要自己定义一个枚举
 
@@ -30,8 +30,8 @@
 * ![效果图](Reimg/img_3.png)	
 * 代码实现：这里用到了一个懒加载机制。主要是前端实现。后端只要获取所有数据
   * 前面也要自定义mapper。跟下方 懒加载机制实现一样
-* service:  ![service](Reimg/img_4.png)
-* Controller: ![Kongzhi](Reimg/img_5.png)
+* service:  ![service](D:\java\code\framework-learn\README.assets\img_4.png)
+* Controller: ![Kongzhi](D:\java\code\framework-learn\README.assets\img_5.png)
 
 > 二级分类
 
@@ -99,8 +99,8 @@ where
   
 ###### 配置自定义mapper
 
-1. 先创建mapper，直接创建接口就行 ![mapper](Reimg/img_6.png)
-2. 配置xml文件，绑定并且写sql ![img](Reimg/img_7.png)
+1. 先创建mapper，直接创建接口就行 ![mapper](D:\java\code\framework-learn\README.assets\img_6.png)
+2. 配置xml文件，绑定并且写sql ![img](D:\java\code\framework-learn\README.assets\img_7.png)
 
  ##### 下拉懒加载
 
@@ -145,7 +145,7 @@ LIMIT 0,6
 
 * 自定义Mapper
 
-  ![img](Reimg/img_8.png)
+  ![img](D:\java\code\framework-learn\README.assets\img_8.png)
 
   xml文件配置：
 
@@ -452,9 +452,9 @@ pagehelper:
 
 #### 信息匿名脱敏
 
-* 效果：![xiaoguo](Reimg/img_10.png)
+* 效果：![xiaoguo](D:\java\code\framework-learn\README.assets\img_10.png)
 
-![效果](Reimg/img_11.png)
+![效果](D:\java\code\framework-learn\README.assets\img_11.png)
 
 实现：引入工具类
 
@@ -537,7 +537,7 @@ public class DesensitizationUtil {
 }
 ```
 
-然后在service层使用：![tu](Reimg/img_12.png)
+然后在service层使用：![tu](D:\java\code\framework-learn\README.assets\img_12.png)
 
 #### 商品搜索
 
@@ -801,7 +801,7 @@ public class CustomExceptionHandler {
 
 xml中：
 
-```sql
+```xml
   SELECT
         od.id as orderId,
         od.created_time as createdTime,
@@ -831,11 +831,90 @@ xml中：
 
 * 编写查询订单Controller MyOrdersController
 
+##### 嵌套查询分页bug解决方案
+
+mybatis分页插件不支持嵌套分页，也就是一个订单中有多条记录。
+
+* 处理方法：将原来的一条sql语句拆分成两条sql.对应的collection中添加 
+
+    **select="getSubItems"     column="orderId"** 字段
+
+```xml
+
+  <select id="queryMyOrders" resultMap="myOrdersVO" parameterType="Map">
+    SELECT
+        od.id as orderId,
+        od.created_time as createdTime,
+        od.pay_method as payMethod,
+        od.real_pay_amount as realPayAmount,
+        od.post_amount as postAmount,
+        os.order_status as orderStatus,
+        od.is_comment as isComment
+    FROM
+        orders od
+    LEFT JOIN
+        order_status os
+    on od.id = os.order_id
+    WHERE
+        od.user_id = #{paramsMap.userId}
+    AND
+        od.is_delete = 0
+        <if test="paramsMap.orderStatus != null">
+          and os.order_status = #{paramsMap.orderStatus}
+        </if>
+    ORDER BY
+        od.updated_time ASC
+  </select>
+    <select id="getSubItems" parameterType="String" resultType="com.imooc.pojo.vo.MySubOrderItemVO">
+
+      select
+        oi.item_id as itemId,
+        oi.item_name as itemName,
+        oi.item_img as itemImg,
+        oi.item_spec_name as itemSpecName,
+        oi.buy_counts as buyCounts,
+        oi.price as price
+      from
+        order_items oi
+      where
+        oi.order_id = #{orderId}
+
+    </select>
+```
+
+#### 商家发货
+
+直接在MyOrdersController中实现
+
+```java
+@GetMapping("/deliver")
+public IMOOCJSONResult deliver(
+        @ApiParam(name = "orderId", value = "订单id", required = true)
+        @RequestParam String orderId) throws Exception {
+
+    if (StringUtils.isBlank(orderId)) {
+        return IMOOCJSONResult.errorMsg("订单ID不能为空");
+    }
+    myOrdersService.updateDeliverOrderStatus(orderId);
+    return IMOOCJSONResult.ok();
+}
+```
+
+#### 操作订单前的验证
+
+订单之间可能会有关联关系，在进行如删除操作前，需要进行验证
+
+* MyOrdersController  checkUserOrder方法  delete方法
+* service queryMyOrder方法
+
+#### 确认收货与删除订单
+
 
 
 ### 用户评价模块
 
+#### 查询评价商品列表
 
-
-
+* MyCommentsController  pending方法
+* service  queryPendingComment方法
 

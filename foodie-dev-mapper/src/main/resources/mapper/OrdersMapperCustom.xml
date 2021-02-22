@@ -10,7 +10,7 @@
       <result column="postAmount" property="postAmount"/>
       <result column="orderStatus" property="orderStatus"/>
       <result column="isComment" property="isComment"/>
-
+<!--        嵌套了一个二级订单   select是对应的查询ID，下面要实现这个方法 column是传入对应属性值-->
     <collection property="subOrderItemList"
                 select="getSubItems"
                 column="orderId"
