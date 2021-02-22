@@ -20,6 +20,9 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:8080");
         config.addAllowedOrigin("http://localhost:80");
+        config.addAllowedOrigin("http://wonderbell.cn:8081");
+        config.addAllowedOrigin("http://wonderbell.cn:8088");
+        config.addAllowedOrigin("http://wonderbell.cn");
 //        config.addAllowedOrigin("http://shop.z.mukewang.com:8080");
 //        config.addAllowedOrigin("http://center.z.mukewang.com:8080");
 //        config.addAllowedOrigin("http://shop.z.mukewang.com");

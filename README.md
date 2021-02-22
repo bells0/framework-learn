@@ -797,7 +797,39 @@ public class CustomExceptionHandler {
 
 ### 用户订单管理
 
+#### 查询我的订单sql
 
+xml中：
+
+```sql
+  SELECT
+        od.id as orderId,
+        od.created_time as createdTime,
+        od.pay_method as payMethod,
+        od.real_pay_amount as realPayAmount,
+        od.post_amount as postAmount,
+        os.order_status as orderStatus,
+        od.is_comment as isComment
+    FROM
+        orders od
+    LEFT JOIN
+        order_status os
+    on od.id = os.order_id
+    WHERE
+        od.user_id = #{paramsMap.userId}
+    AND
+        od.is_delete = 0
+        <if test="paramsMap.orderStatus != null">
+          and os.order_status = #{paramsMap.orderStatus}
+        </if>
+    ORDER BY
+        od.updated_time ASC
+```
+
+* 编写Mapper  queryMyOrders方法
+* 编写service  MyOrdersService接口
+
+* 编写查询订单Controller MyOrdersController
 
 
 
