@@ -19,8 +19,11 @@
         updated_time
       )
     values
+--            foreach 实现循环保存
       <foreach collection="commentList" item="item" index="index" separator=",">
+
       (
+--        这是从OrderItemsCommentBO中获取
         #{item.commentId},
         #{userId},
         #{item.itemId},
@@ -29,6 +32,7 @@
         #{item.itemSpecName},
         #{item.commentLevel},
         #{item.content},
+--        创建时间与更新时间直接使用now函数
         now(),
         now()
       )

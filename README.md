@@ -918,3 +918,128 @@ public IMOOCJSONResult deliver(
 * MyCommentsController  pending方法
 * service  queryPendingComment方法
 
+* service saveComments方法 
+  * mapper层再编写一个saveComments方法
+
+#### 历史评价列表
+
+点击 **我的评价** 可以显示所有历史评价
+
+* mapper 
+
+```xml
+
+  <resultMap id="myComments" type="com.imooc.pojo.vo.MyCommentVO">
+    <id column="commentId" property="commentId"/>
+    <result column="content" property="content"/>
+    <result column="createdTime" property="createdTime"/>
+    <result column="itemId" property="itemId"/>
+    <result column="itemName" property="itemName"/>
+    <result column="sepcName" property="specName"/>
+    <result column="itemImg" property="itemImg"/>
+  </resultMap>
+
+  <select id="queryMyComments" parameterType="Map" resultMap="myComments">
+    SELECT
+        ic.id as commentId,
+        ic.content as content,
+        ic.created_time as createdTime,
+        ic.item_id as itemId,
+        ic.item_name as itemName,
+        ic.sepc_name as sepcName,
+        ii.url as itemImg
+    FROM
+        items_comments ic
+    LEFT JOIN
+        items_img ii
+    ON
+        ic.item_id = ii.item_id
+    WHERE
+        ic.user_id = #{paramsMap.userId}
+    AND
+        ii.is_main = 1
+    ORDER BY
+        ic.created_time
+    desc
+  </select>
+```
+
+* service: queryMyComments 方法
+
+* Controller:   query方法
+
+
+
+### 中心首页
+
+#### 订单状态概览Mapper
+
+```xml
+
+    <select id="getMyOrderStatusCounts" parameterType="Map" resultType="int">
+        SELECT
+            count(1)
+        FROM
+            orders o
+        LEFT JOIN
+            order_status os
+        on
+            o.id = os.order_id
+        WHERE
+            o.user_id = #{paramsMap.userId}
+        AND
+            os.order_status = #{paramsMap.orderStatus}
+        <if test="paramsMap.isComment != null">
+            and o.is_comment = #{paramsMap.isComment}
+        </if>
+    </select>
+```
+
+#### 订单状态概览完成接口联调
+
+* service: getOrderStatusCounts
+*  MyOrdersController statusCounts方法
+
+#### 订单动向完成接口联调
+
+* mapper
+
+```xml
+
+    <select id="getMyOrderTrend" parameterType="Map" resultType="com.imooc.pojo.OrderStatus">
+
+        SELECT
+            os.order_id as orderId,
+            os.order_status as orderStatus,
+            os.created_time as createdTime,
+            os.pay_time as payTime,
+            os.deliver_time as deliverTime,
+            os.success_time as successTime,
+            os.close_time as closeTime,
+            os.comment_time as commentTime
+        FROM
+          orders o
+        LEFT JOIN
+          order_status os
+        on
+          o.id = os.order_id
+        WHERE
+          o.is_delete = 0
+        AND
+          o.user_id = #{paramsMap.userId}
+        AND
+          os.order_status in (20, 30, 40)
+        ORDER BY
+          os.order_id
+        DESC
+    </select>
+```
+
+* controller trend方法
+
+* service getOrdersTrend方法
+
+
+
+# 应用发布
+
